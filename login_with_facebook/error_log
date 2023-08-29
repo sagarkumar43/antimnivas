@@ -1,0 +1,50 @@
+[09-Apr-2021 14:03:09 UTC] PHP Fatal error:  Uncaught Facebook\Exceptions\FacebookSDKException: Required "app_id" key not supplied in config and could not find fallback environment variable "FACEBOOK_APP_ID" in /home/pakki85n/antimnivas.com/login_with_facebook/php-graph-sdk-5.x/src/Facebook/Facebook.php:139
+Stack trace:
+#0 /home/pakki85n/antimnivas.com/login_with_facebook/fb-config.php(5): Facebook\Facebook->__construct(Array)
+#1 /home/pakki85n/antimnivas.com/login_with_facebook/index.php(2): include_once('/home/pakki85n/...')
+#2 {main}
+  thrown in /home/pakki85n/antimnivas.com/login_with_facebook/php-graph-sdk-5.x/src/Facebook/Facebook.php on line 139
+[09-Apr-2021 14:04:26 UTC] PHP Fatal error:  Uncaught Facebook\Exceptions\FacebookSDKException: Required "app_id" key not supplied in config and could not find fallback environment variable "471121704033144" in /home/pakki85n/antimnivas.com/login_with_facebook/php-graph-sdk-5.x/src/Facebook/Facebook.php:139
+Stack trace:
+#0 /home/pakki85n/antimnivas.com/login_with_facebook/fb-config.php(5): Facebook\Facebook->__construct(Array)
+#1 /home/pakki85n/antimnivas.com/login_with_facebook/index.php(2): include_once('/home/pakki85n/...')
+#2 {main}
+  thrown in /home/pakki85n/antimnivas.com/login_with_facebook/php-graph-sdk-5.x/src/Facebook/Facebook.php on line 139
+[12-Apr-2021 12:41:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function checkuser() in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php:55
+Stack trace:
+#0 {main}
+  thrown in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 55
+[12-Apr-2021 12:46:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function checkuser() in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php:55
+Stack trace:
+#0 {main}
+  thrown in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 55
+[12-Apr-2021 12:59:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_query() in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php:58
+Stack trace:
+#0 /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php(55): checkuser('282758646746304...', 'Sagar Kumar Pra...')
+#1 {main}
+  thrown in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 58
+[12-Apr-2021 13:01:48 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 58
+[12-Apr-2021 13:01:48 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 59
+[12-Apr-2021 13:01:48 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 62
+[12-Apr-2021 13:01:48 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php:58) in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 70
+[12-Apr-2021 13:03:06 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 59
+[12-Apr-2021 13:03:06 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 60
+[12-Apr-2021 13:03:06 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 63
+[12-Apr-2021 13:03:06 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pakki85n/antimnivas.com/admin/dbconnection.php:4) in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 71
+[12-Apr-2021 13:03:58 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 60
+[12-Apr-2021 13:03:58 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 61
+[12-Apr-2021 13:03:58 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 64
+[12-Apr-2021 13:03:58 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pakki85n/antimnivas.com/admin/dbconnection.php:4) in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 72
+[12-Apr-2021 13:05:40 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 60
+[12-Apr-2021 13:05:40 UTC] PHP Warning:  mysqli_num_rows() expects exactly 1 parameter, 2 given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 61
+[12-Apr-2021 13:05:40 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 64
+[12-Apr-2021 13:05:40 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pakki85n/antimnivas.com/admin/dbconnection.php:4) in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 72
+[12-Apr-2021 13:06:34 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 60
+[12-Apr-2021 13:06:34 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 61
+[12-Apr-2021 13:06:34 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 64
+[12-Apr-2021 13:06:34 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pakki85n/antimnivas.com/admin/dbconnection.php:4) in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 72
+[12-Apr-2021 13:09:20 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 60
+[12-Apr-2021 13:09:20 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 61
+[12-Apr-2021 13:09:20 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 64
+[12-Apr-2021 13:09:20 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php:59) in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 72
+[12-Apr-2021 13:10:40 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php:60) in /home/pakki85n/antimnivas.com/login_with_facebook/fb-callback.php on line 73

@@ -1,0 +1,362 @@
+<?php
+session_start();
+// Set timezone 
+date_default_timezone_set('Asia/Kolkata'); 
+  
+include('admin/dbconnection.php');
+
+
+?>
+<!doctype html>
+<html>
+
+<!-- Mirrored from antimnivas.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Nov 2020 10:48:51 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<head>
+
+
+
+	<meta name="google-site-verification" content="ItrJMgGYc_m2ChyF4GSs0Jvmi0P9DtZjSpC_HLo7Prk" />
+	<meta http-equiv=”Refresh” content=”0;URL=https://antimnivas.com” />
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:url" content="/">
+
+	<meta property="og:type" content="website">
+
+	<meta property="og:title"
+		content="Digital Online Obituary, Shradhanjali, Tribute portal | Heavenly abode for the departed souls">
+
+	<!-- <meta property="og:image" content="" > -->
+	<meta property="og:image" content="img/rest.jpg">
+	<meta property="og:description"
+		content="Antimnivas.com is an effort to provide a platform to keep the obituaries in a digital form. This helps in keeping the memories of the departed loved ones safe and also provides information about various religious customs and prayers required for the peace of the departed souls.">
+
+	<link rel="icon" href="frontend/images/favicon.ico" type="image/x-icon">
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800&amp;display=swap"
+		rel="stylesheet">
+
+	<link rel="stylesheet" href="frontend/css/fontawesome.css" type="text/css">
+
+	<link rel="stylesheet" href="frontend/css/bootstrap.min.css" type="text/css">
+
+	<link href="frontend/css/package-payment.css" rel="stylesheet" type="text/css">
+
+	<link href="frontend/css/style.css" rel="stylesheet" type="text/css">
+	<link href="frontend/css/responsive.css" rel="stylesheet" type="text/css">
+	<!-- Owl Stylesheets -->
+	<link rel="stylesheet" href="frontend/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="frontend/css/owl.theme.default.min.css">
+	<!-- Owl Stylesheets -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153207188-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-153207188-1');
+	</script>
+</head>
+
+<body>
+
+	<!-- loader start -->
+	<!-- <div id="loading">
+  <img id="loading-image" height="100px" width="100px" src="img/apploader.gif" alt="Loading..." />
+
+</div>
+ -->
+
+	<!-- loader end -->
+
+
+
+
+
+
+
+	<!-- login Popup Html -->
+
+
+
+
+
+
+	<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+
+
+
+	<div class="container">
+
+		<!-- Modal -->
+		<div class="modal fade" id="forgot" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<!--<div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>-->
+					<div class="modal-body">
+
+
+						<div class="logo-pop text-center paddingB-15">
+							<img src="frontend/images/logo.png" alt="" width="170" />
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<div class="login-form paddingT-10">
+
+							<div class="left-side">
+
+								<div class="form-item"><input name="email" id="forgot_email" required="" type="email"
+										autocomplete="off" placeholder="Enter Email" required></div>
+								<center>
+									<p style="color:green;display: none;" id="forgot_pwd_link">Password reset link has
+										been sent to your registered email.</p>
+									<p style="color:red;display: none;" id="invalid_mail">This account is not exist</p>
+								</center>
+								<div class="form-item text-center"><input onclick="forgot_pwd()" type="button"
+										value="Forgot Password" class="button_Log"></div>
+							</div>
+
+						</div>
+
+
+
+
+					</div>
+					<!--<div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>-->
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	<script type="text/javascript">
+		function forgot_pwd() {
+
+			var forgot_mail = $("#forgot_email").val();
+			if (forgot_mail == '') {
+				alert('email field cannot be blank');
+				return false;
+			}
+			if (IsEmail(forgot_mail) == false) {
+				alert('Invalid email address');
+				$("#forgot_email").focus();
+				return false;
+			}
+
+			var datavar = "email=" + forgot_mail;
+
+			$.ajax({
+				type: 'post',
+				data: datavar,
+				url: '/users/forgotpwd',
+				success: function (data) {
+					if (data == 1) {
+						$("#forgot_pwd_link").show();
+						return false;
+					}
+					if (data == 2) {
+						$("#invalid_mail").show();
+					}
+					if (data == 3) {
+						alert('error in sending mail');
+					}
+
+				}
+			});
+		}
+	</script>
+
+
+
+
+	<?php include('header.php'); ?>
+
+	<section class="backend-profilePage">
+		<div class="container">
+			<div class="flex-pfo">
+				<div class="left">
+					<img src="images/default-avatar.png" alt="profile photo">
+					<h3 class="heading-h2"> <?php echo $_SESSION["username"];?></h3>
+				</div>
+			</div>
+
+			<div class="paddingB-20">
+				<div class="table-responsive">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0"
+						class="table table-bordered custom-profile">
+						<thead>
+							<tr>
+								<th>Obituary Title</th>
+								<th>Name</th>
+								<th>Date of Birth</th>
+								<th>Date of Demise</th>
+								<th>Biography</th>
+								<th>Pics</th>
+								<th>Video</th>
+								<th>Frame</th>
+								<th>Plan</th>
+								<th>Featured</th>
+							</tr>
+						</thead>
+						<?php
+						
+	$email=$_SESSION["useremail"];						
+    $query="select * from add_obituary where Upload_By='$email'";
+    $execute=mysqli_query($connect,$query);
+	while($read=mysqli_fetch_array($execute))
+	{
+  ?>
+						<tbody>
+							<tr>
+								<th><?Php echo $read["Obituary_Heading"];?></th>
+								<th><?Php echo $read["Name_Prefix"];?> <?Php echo $read["Name"];?></th>
+								<th> <?Php echo $read["Born_Date"];?> <?Php echo $read["Born_Month"];?> <?Php echo $read["Born_Year"];?></th>
+								<th><?Php echo $read["Pass_Date"];?> <?Php echo $read["Pass_Month"];?> <?Php echo $read["Pass_Year"];?></th>
+								<th><?Php echo $read["Biography"];?></th>
+								<th><img src="admin/obituary_imgs/<?php echo $read["Image_File"];?>" style="width: 50%;"/></th>
+								<th><?Php echo $read["Videos"];?></th>
+								<th><?Php echo $read["Frames"];?></th>
+								<th><?Php echo $read["Plans"];?></th>
+								<th><?Php echo $read["Featured"];?></th>
+							</tr>
+						</tbody>
+						<?php  } ?>
+					</table>
+
+				</div>
+				<div class="paddingT-10 back-btn">
+					<div class="anchor-btn">
+						<a href="#" class="anchor-1">View Obituary</a>
+					</div>
+					<div class="anchor-btn">
+						<a href="post-obituary.php" class="anchor-2">Post New Obituary</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+
+	<?php include('footer.php'); ?>
+
+	<script src="ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script src="frontend/js/bootstrap.min.js"></script>
+	<script src="frontend/js/FarsiType.js"></script>
+
+	<script src="frontend/js/owl.carousel.min.js"></script>
+	<script src="frontend/js/mCustomScrollbar.js"></script>
+	<script src="frontend/js/custom.js"></script>
+
+
+	<script>
+		$(window).load(function () {
+
+			$('#loading').hide();
+		});
+
+	</script>
+
+
+	<script>
+		var input = document.getElementById("password-field");
+		var text = document.getElementById("text");
+		input.addEventListener("keyup", function (event) {
+
+			if (event.getModifierState("CapsLock")) {
+				text.style.display = "block";
+			} else {
+				text.style.display = "none"
+			}
+		});
+
+
+		$(document).ready(function () {
+
+			var navListItems = $('div.setup-panel div a'),
+				allWells = $('.setup-content'),
+				allNextBtn = $('.nextBtn');
+
+			allWells.hide();
+
+			navListItems.click(function (e) {
+				e.preventDefault();
+				var $target = $($(this).attr('href')),
+					$item = $(this);
+
+				if (!$item.hasClass('disabled')) {
+					navListItems.addClass('btn-default');
+					$item.addClass('btn-success');
+					allWells.hide();
+					$target.show();
+					$target.find('input:eq(0)').focus();
+				}
+			});
+
+			allNextBtn.click(function () {
+				var curStep = $(this).closest(".setup-content"),
+					curStepBtn = curStep.attr("id"),
+					nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+					curInputs = curStep.find("input[type='text'],input[type='url']"),
+					isValid = true;
+
+				$(".form-group").removeClass("has-error");
+				for (var i = 0; i < curInputs.length; i++) {
+					if (!curInputs[i].validity.valid) {
+						isValid = false;
+						$(curInputs[i]).closest(".form-group").addClass("has-error");
+					}
+				}
+
+				if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
+			});
+
+			$('div.setup-panel div a.btn-success').trigger('click');
+		});
+
+
+//   window.onload = function () {
+//     if (typeof history.pushState === "function") {
+//         history.pushState("jibberish", null, null);
+//         window.onpopstate = function () {
+//             history.pushState('newjibberish', null, null);           
+//         };
+//     }
+//     else {
+//         var ignoreHashChange = true;
+//         window.onhashchange = function () {
+//             if (!ignoreHashChange) {
+//                 ignoreHashChange = true;
+//                 window.location.hash = Math.random();                
+//             }
+//             else {
+//                 ignoreHashChange = false;   
+//             }
+//         };
+//     }
+// };
+
+	</script>
+</body>
+
+<!-- Mirrored from antimnivas.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Nov 2020 10:50:52 GMT -->
+
+</html>
